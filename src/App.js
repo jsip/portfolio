@@ -1,4 +1,5 @@
 import logo from "./logo.png";
+import cv from "./cv.PNG";
 import "./App.css";
 
 function App() {
@@ -48,6 +49,9 @@ function App() {
           </svg>
         </a>
       </header>
+      <div>
+        <img src={cv} alt="cv"></img>
+      </div>
     </div>
   );
 }
