@@ -1,6 +1,28 @@
-import logo from "./logo.png";
-import cv from "./cv.PNG";
+import React, { Suspense, useRef } from "react";
+import { Canvas } from "@react-three/fiber";
 import "./App.css";
+import cv from "./cv.PNG";
+import {
+  Loader,
+  OrbitControls,
+  useGLTF,
+  PerspectiveCamera,
+  Stars,
+} from "@react-three/drei";
+import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
+
+function Model(props) {
+  const group = useRef();
+  const { nodes, materials } = useGLTF("/mac-draco.glb");
+  return (
+    <group ref={group} {...props} dispose={null}>
+      <mesh castShadow receiveShadow />
+      <mesh castShadow receiveShadow />
+    </group>
+  );
+}
+
+useGLTF.preload("/mac-draco.glb");
 
 function App() {
   return (
@@ -11,7 +33,7 @@ function App() {
           href="https://www.github.com/jsip"
           target="_blank"
           rel="noreferrer"
-          style={{ "padding-top": "2rem" }}
+          style={{ "padding-top": "2rem", zIndex: "99" }}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -30,7 +52,7 @@ function App() {
           href="https://www.linkedin.com/in/jean-simon-royer-453a38196/"
           target="_blank"
           rel="noreferrer"
-          style={{ "padding-top": "2rem" }}
+          style={{ paddingTop: "2rem", zIndex: "99" }}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -50,8 +72,259 @@ function App() {
         </a>
       </header>
       <div>
-        <img src={cv} alt="cv"></img>
+        <img src={cv} alt="cv" style={{}}></img>
+        {/* 
+        <div class="cv-cont">
+          <div class="grid-left">
+            <div class="rows-cont">
+              <div class="row1">
+                <h4>Jean-Simon Royer</h4>
+              </div>
+              <div class="row2">
+                <h4>Expérience</h4>
+              </div>
+              <div class="row3">
+                <h4>Compétences</h4>
+                <ul>
+                  <li>Bilingue écrit/parlé</li>
+                  <li>Déterminé</li>
+                  <li>Entreprenant</li>
+                </ul>
+              </div>
+              <div class="row4">
+                <h4>Éducation</h4>
+              </div>
+              <div class="row5">
+                <h4>Intérêts</h4>
+              </div>
+            </div>
+          </div>
+          <div class="grid-right">
+            <div class="arows-cont">
+              <div class="arow1">
+                <ul>
+                  <li>jeansimon.dev</li>
+                  <li>jsimonroyer@gmail.com</li>
+                  <li>(581) 986-1054</li>
+                </ul>
+              </div>
+              <div class="arow2">
+                <div>
+                  <div>
+                    <div>
+                      <h4>Mille Technologies Financières</h4>
+                      <span>
+                        <h6>Co-Fondateur</h6>
+                        <h6>Depuis 2020</h6>
+                      </span>
+                    </div>
+                    <li>
+                      <p>
+                        Conception, préparation et création d’un produit en
+                        équipe
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        Modélisation, création et maintenance de
+                        l’infrastructure technologique
+                      </p>
+                    </li>
+                    <li>
+                      <p>Création et utilisation d’un DevOps flow en CI/CD</p>
+                    </li>
+                    <li>
+                      <p>Création du marketing et de l’image de marque Mille</p>
+                    </li>
+                  </div>
+                  <div>
+                    <div>
+                      <h4>Mille Technologies Financières</h4>
+                      <span>
+                        <h6>Co-Fondateur</h6>
+                        <h6>Depuis 2020</h6>
+                      </span>
+                    </div>
+                    <li>
+                      <p>
+                        Conception, préparation et création d’un produit en
+                        équipe
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        Modélisation, création et maintenance de
+                        l’infrastructure technologique
+                      </p>
+                    </li>
+                    <li>
+                      <p>Création et utilisation d’un DevOps flow en CI/CD</p>
+                    </li>
+                    <li>
+                      <p>Création du marketing et de l’image de marque Mille</p>
+                    </li>
+                  </div>
+                  <div>
+                    <div>
+                      <h4>Mille Technologies Financières</h4>
+                      <span>
+                        <h6>Co-Fondateur</h6>
+                        <h6>Depuis 2020</h6>
+                      </span>
+                    </div>
+                    <li>
+                      <p>
+                        Conception, préparation et création d’un produit en
+                        équipe
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        Modélisation, création et maintenance de
+                        l’infrastructure technologique
+                      </p>
+                    </li>
+                    <li>
+                      <p>Création et utilisation d’un DevOps flow en CI/CD</p>
+                    </li>
+                    <li>
+                      <p>Création du marketing et de l’image de marque Mille</p>
+                    </li>
+                  </div>
+                  <div>
+                    <div>
+                      <h4>Mille Technologies Financières</h4>
+                      <span>
+                        <h6>Co-Fondateur</h6>
+                        <h6>Depuis 2020</h6>
+                      </span>
+                    </div>
+                    <li>
+                      <p>
+                        Conception, préparation et création d’un produit en
+                        équipe
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        Modélisation, création et maintenance de
+                        l’infrastructure technologique
+                      </p>
+                    </li>
+                    <li>
+                      <p>Création et utilisation d’un DevOps flow en CI/CD</p>
+                    </li>
+                    <li>
+                      <p>Création du marketing et de l’image de marque Mille</p>
+                    </li>
+                  </div>
+                </div>
+              </div>
+              <div class="4-col arow3">
+                <div>
+                  <h5>UX</h5>
+                  <br />
+                  <br />
+                  <ul>
+                    <li>Personas</li>
+                    <li>Fils de fer</li>
+                    <li>Prototypes</li>
+                    <li>Tests Unitaires</li>
+                  </ul>
+                </div>
+                <div>
+                  <h5>UI</h5>
+                  <br />
+                  <br />
+                  <ul>
+                    <li>Illustration</li>
+                    <li>Image de marque</li>
+                    <li>Implémentation</li>
+                    <li>Animation</li>
+                  </ul>
+                </div>
+                <div>
+                  <h5>Apps</h5>
+                  <br />
+                  <br />
+                  <ul>
+                    <li>Adobe CC</li>
+                    <li>InVision</li>
+                    <li>Postman</li>
+                    <li>VSCode</li>
+                  </ul>
+                </div>
+                <div>
+                  <h5>Programmation</h5>
+                  <br />
+                  <br />
+                  <ul>
+                    <li>HTML, CSS, PHP, JS</li>
+                    <li>TS, Python, GoLang, Node</li>
+                    <li>GitHub, Docker, Kubernetes</li>
+                    <li>GCP, AWS, Linux, WinOS</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="arow4">
+                <div>
+                  <div>
+                    <h4>AEC en Techniques de Développement Web</h4>
+                    <span>
+                      <h6>Cohorte 2021</h6>
+                    </span>
+                  </div>
+                  <p>Collège O’Sullivan</p>
+                </div>
+                <div>
+                  <div>
+                    <h4>Études en Assurances & Services Financiers</h4>
+                    <span>
+                      <h6>2019</h6>
+                    </span>
+                  </div>
+                  <p>Cégep Ste-Foy</p>
+                </div>
+              </div>
+              <div class="arow5">
+                <p>Programmation, Marchés Financiers, Entreprenariat </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      */}
       </div>
+      <section id="canvas">
+        <Canvas dpr={[1.5, 2]} linear shadows>
+          <fog attach="fog" args={["#272730", 16, 30]} />
+          <ambientLight intensity={0.75} />
+          <PerspectiveCamera makeDefault position={[0, 0, 16]} fov={75}>
+            <pointLight intensity={1} position={[-10, -25, -10]} />
+            <spotLight
+              castShadow
+              intensity={2.25}
+              angle={0.2}
+              penumbra={1}
+              position={[-25, 20, -15]}
+              shadow-mapSize={[1024, 1024]}
+              shadow-bias={-0.0001}
+            />
+          </PerspectiveCamera>
+          <Suspense fallback={null}>
+            <Model />
+          </Suspense>
+          <OrbitControls
+            autoRotate
+            enablePan={false}
+            enableZoom={false}
+            maxPolarAngle={Math.PI / 2}
+            minPolarAngle={Math.PI / 2}
+          />
+          <Stars radius={500} depth={50} count={1500} factor={10} />
+        </Canvas>
+        <div className="layer" />
+        <Loader />
+      </section>
     </div>
   );
 }
