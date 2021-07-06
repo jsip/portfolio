@@ -82,7 +82,7 @@ function App() {
           </a>
         </div>
       </header>
-      <img src={cv} alt="cv" class="cv-img"></img>
+      {/* <img src={cv} alt="cv" class="cv-img"></img> */}
       <div>
         {/* 
         <div class="cv-cont">
