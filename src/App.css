@@ -16,7 +16,6 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -57,7 +56,7 @@ body {
 }
 
 #canvas {
-  transform: translateY(-200%);
+  position: absolute;
 }
 
 .bg {
@@ -79,7 +78,7 @@ h1 {
   font-size: 5em;
   margin: 0;
   color: peru;
-  line-height: 0.6em;
+  line-height: 1em;
   letter-spacing: -2px;
   text-align: left;
 }
@@ -121,37 +120,15 @@ span.header-left {
   position: absolute;
   display: inline-block;
   transform: translate3d(0, -50%, 0);
-  line-height: 1em;
+  line-height: 2em;
   top: 200px;
   left: 60px;
   font-size: 4em;
   width: 200px;
 }
 
-.cv-cont {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  list-style: none;
-}
-.grid-left {
-}
-.rows-cont {
-  display: grid;
-  grid-template-rows: repeat(8, 1fr);
-}
-
-.row1 {
-  grid-row: 1 / span 1;
-}
-.row2 {
-  grid-row: 2 / span 3;
-}
-.row3 {
-  grid-row: 5 / span 1;
-}
-.row4 {
-  grid-row: 6 / span 1;
-}
-.row5 {
-  grid-row: 7 / span 1;
+.cv-img {
+  width: 100%;
+  height: auto;
+  margin: auto;
 }
