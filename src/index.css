@@ -41,6 +41,7 @@ body,
   left: 0;
   overflow-y: auto;
   scroll-snap-type: y proximity;
+  scroll-behavior: smooth;
 }
 
 .scroll > div {
@@ -83,8 +84,22 @@ body {
 }
 
 #dotP {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  padding: 0.75vw;
+  width: max-content;
+  height: min-content;
+  border-radius: 15px;
+  display: block;
   font-size: 1vw;
   font-weight: 600;
+  z-index: 999;
+}
+
+.elsewhere {
+  min-height: max-content;
+  z-index: 999;
 }
 
 #name {
