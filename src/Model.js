@@ -20,7 +20,11 @@ export default function Model({ scroll, ...props }) {
     castShadow: true,
     "material-envMapIntensity": 0.2,
   };
-  useEffect(() => void actions["CameraAction.005"].play(), []);
+  const openInNewTab = (url) => {
+    const newWindow = window.open(url, "_blank", "noopener,noreferrer");
+    if (newWindow) newWindow.opener = null;
+  };
+  useEffect(() => void actions["CameraAction.005"].play(), [actions]);
   useEffect(() => {
     if (hovered)
       group.current.getObjectByName(hovered).material.color.set("white");
@@ -58,46 +62,53 @@ export default function Model({ scroll, ...props }) {
         scale={[0.25, 0.25, 0.25]}
       >
         <mesh
-          name="Headphones"
-          geometry={nodes.Headphones.geometry}
-          material={materials.M_Headphone}
-          {...extras}
-        />
-        <mesh
           name="Notebook"
           geometry={nodes.Notebook.geometry}
           material={materials.M_Notebook}
+          onClick={() => openInNewTab("https://github.com/jsip/miningGame")}
+          {...extras}
+        />
+        <mesh
+          name="Headphones"
+          geometry={nodes.Headphones.geometry}
+          material={materials.M_Headphone}
+          onClick={() => openInNewTab("https://github.com/jsip/watchl")}
           {...extras}
         />
         <mesh
           name="Rocket003"
           geometry={nodes.Rocket003.geometry}
           material={materials.M_Rocket}
+          onClick={() => openInNewTab("https://getmille.com/")}
           {...extras}
         />
         <mesh
           name="Roundcube001"
           geometry={nodes.Roundcube001.geometry}
           material={materials.M_Roundcube}
+          onClick={() => openInNewTab("https://github.com/jsip/lightflix")}
           {...extras}
         />
         <mesh
           name="Table"
           geometry={nodes.Table.geometry}
           material={materials.M_Table}
+          onClick={() => openInNewTab("https://github.com/jsip/RAMDashboard")}
           {...extras}
         />
         <mesh
           name="VR_Headset"
           geometry={nodes.VR_Headset.geometry}
           material={materials.M_Headset}
+          onClick={() => openInNewTab("https://www.linkedin.com/in/jean-simon-royer-453a38196/")}
           {...extras}
         />
         <mesh
           name="Zeppelin"
           geometry={nodes.Zeppelin.geometry}
           material={materials.M_Zeppelin}
-          v
+          onClick={() => openInNewTab("https://github.com/jsip/portfolio")}
+          {...extras}
         />
       </group>
       <group
@@ -108,8 +119,8 @@ export default function Model({ scroll, ...props }) {
         <PerspectiveCamera
           makeDefault
           far={100}
-          near={0.1}
-          fov={28}
+          near={1}
+          fov={25}
           rotation={[-Math.PI / 2, 0, 0]}
         >
           <directionalLight

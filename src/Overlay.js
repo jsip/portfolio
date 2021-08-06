@@ -7,17 +7,19 @@ const Overlay = forwardRef(({ caption, scroll }, ref) => (
       scroll.current =
         e.target.scrollTop / (e.target.scrollHeight - window.innerHeight);
       caption.current.innerText =
-        (scroll.current * 100).toFixed(0) + ` | ${(100 - scroll.current * 100).toFixed(0)}`;
+        (scroll.current * 100).toFixed(0) +
+        ` | ${(100 - scroll.current * 100).toFixed(0)}`;
     }}
     className="scroll"
   >
-    <div style={{ height: "450vh" }}>
+    <span id="scrollIntoView"></span>
+    <div style={{ height: "150vh" }}>
       <div className="dot">
-        <h1>Jean-Simon Royer</h1>
+        <h1 id="name">Jean-Simon Royer</h1>
         Développeur full-stack
       </div>
     </div>
-    <div style={{ height: "200vh" }}>
+    <div style={{ height: "80vh" }}>
       <div className="dot">
         <h1>watchl</h1>
         <h2>Site Web, PWA</h2>
@@ -35,7 +37,7 @@ const Overlay = forwardRef(({ caption, scroll }, ref) => (
         </code>
       </div>
     </div>
-    <div style={{ height: "200vh" }}>
+    <div style={{ height: "80vh" }}>
       <div className="dot">
         <h1>Mille</h1>
         <h2>Site Web, PWA, Librairie NPM, Wrapper</h2>
@@ -55,7 +57,7 @@ const Overlay = forwardRef(({ caption, scroll }, ref) => (
         </code>
       </div>
     </div>
-    <div style={{ height: "200vh" }}>
+    <div style={{ height: "80vh" }}>
       <div className="dot">
         <h1>LightFlix</h1>
         <h2>Site Web</h2>
@@ -70,7 +72,7 @@ const Overlay = forwardRef(({ caption, scroll }, ref) => (
         </code>
       </div>
     </div>
-    <div style={{ height: "200vh" }}>
+    <div style={{ height: "80vh" }}>
       <div className="dot">
         <h1>RAMDashboard</h1>
         <h2>PWA</h2>
@@ -88,7 +90,7 @@ const Overlay = forwardRef(({ caption, scroll }, ref) => (
         </code>
       </div>
     </div>
-    <div style={{ height: "200vh" }}>
+    <div style={{ height: "100vh" }}>
       <div className="dot">
         <h1>Minesweeper</h1>
         <h2>Site Web</h2>
@@ -100,8 +102,16 @@ const Overlay = forwardRef(({ caption, scroll }, ref) => (
         </code>
       </div>
     </div>
-    <div style={{ height: "200vh" }}>
+    <div style={{ height: "100vh" }}>
       <div className="dot">
+        {/* <h3
+          onMouseOver={(e) => {
+            console.log("click", e);
+            ref.current.scrollIntoView({ behavior: "smooth" });
+          }}
+        >
+          Retourner en bas
+        </h3> */}
         <h1>Portfolio</h1>
         <h2>Site Web</h2>
         <p>Portfolio personnel</p>
